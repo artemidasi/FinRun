@@ -1,0 +1,50 @@
+.container {
+  background-color: #fff;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  padding: 100px;
+}
+
+.textWrapper {
+  margin-bottom: 130px;
+}
+
+.imageWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: 150px;
+  margin-right: 10px;
+}
+
+.errorCode {
+  font-size: $font-size-xxl;
+  color: $light-blue-color;
+  font-weight: $font-weight-semi-bold;
+}
+
+.headline {
+  font-size: $font-size-m;
+  font-weight: $font-weight-bold;
+  text-align: start;
+  color: var(--primary-text-color);
+}
+
+.button {
+  margin-top: 30px;
+  width: 267px;
+}
+
+.remark {
+  font-weight: 400;
+  font-size: $font-size-xxs;
+  color: $secondary-color;
+}
+
+.informationContainer {
+  min-width: 438px;
+}

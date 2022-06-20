@@ -18,7 +18,11 @@ body {
   font-family: $font-family;
   font-weight: $font-weight-medium;
   font-style: normal;
-  color: var(--primary-text-color);
+  color: black;
+}
+
+body {
+  background-color: $white-dark-color;
 }
 
 input {

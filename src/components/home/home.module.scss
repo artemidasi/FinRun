@@ -1,0 +1,89 @@
+.left {
+  display: flex;
+
+  padding: 30px;
+
+  height: 100%;
+
+  background-color: $blue-light-color;
+}
+
+.right {
+  padding: 30px;
+}
+
+.title {
+  margin-top: auto;
+
+  font-weight: $font-weight-bold;
+  font-size: $font-size-l;
+}
+
+.list {
+  border-width: 0;
+
+  margin-bottom: 10px;
+
+  > :first-child {
+    border-top-left-radius: $border-radius-xl;
+    border-top-right-radius: $border-radius-xl;
+  }
+
+  > :last-child {
+    border-bottom-left-radius: $border-radius-xl;
+    border-bottom-right-radius: $border-radius-xl;
+  }
+}
+
+.item {
+  $color: $gray-light-color;
+
+  border-width: 0;
+
+  padding: 16px;
+
+  color: $color;
+  background-color: white;
+
+  font-weight: $font-weight-bold;
+
+  path {
+    fill: $color;
+  }
+
+  &_selected {
+    $color: black;
+
+    color: $color;
+
+    path {
+      fill: $color;
+    }
+  }
+}
+
+.user {
+  &Container {
+    padding-bottom: 44px;
+  }
+
+  &Image {
+    width: 55px;
+    height: 55px;
+
+    margin-right: 13px;
+
+    border-radius: 100%;
+
+    overflow: hidden;
+  }
+
+  &Initials {
+    font-weight: $font-weight-bold;
+    font-size: $font-size-m;
+  }
+
+  &Email {
+    font-size: $font-size-xxs;
+  }
+}

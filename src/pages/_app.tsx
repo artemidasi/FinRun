@@ -1,7 +1,7 @@
-import { FC } from 'react';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { Provider } from 'react-redux';
+import { useMount } from 'react-use';
 
 import store from 'store';
 
@@ -9,13 +9,10 @@ import Layout from 'components/layout';
 
 import 'styles/fonts.scss';
 import 'styles/global.scss';
-import { useMount } from 'react-use';
 
-interface AppPropsExtends extends AppProps {
-  Component: AppProps['Component'] & { Layout?: FC };
-}
+import 'react-tabs/style/react-tabs.css';
 
-const App = ({ Component, pageProps }: AppPropsExtends) => {
+const App = ({ Component, pageProps }: AppProps) => {
   useMount(() => {
     const jssStyles = document.querySelector('#jss-server-side');
 

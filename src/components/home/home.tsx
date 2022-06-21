@@ -4,17 +4,20 @@ import uuid from 'react-uuid';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import cn from 'classnames';
 
+import Income from 'components/income';
+
 import AvatarImage from '../../../public/static/images/user-avatar.png';
 
 import { TabArrow } from 'ui-kit/icon';
 
 import styles from './home.module.scss';
+import Title from 'ui-kit/title';
 
 const Home: FC = () => {
   const tabs = [
     {
       text: 'Доходы',
-      content: <section>Доходы (контент)</section>,
+      content: <Income />,
     },
     {
       text: 'Расходы',
@@ -56,7 +59,7 @@ const Home: FC = () => {
                 )}
                 selectedClassName={styles.item_selected}
                 key={uuid()}>
-                <span>{text}</span>
+                <Title variant="h3">{text}</Title>
 
                 <TabArrow />
               </Tab>
@@ -67,7 +70,7 @@ const Home: FC = () => {
         <span className={styles.title}>FinRun</span>
       </section>
 
-      <section className={styles.right}>
+      <section className={cn('full-width', styles.right)}>
         {tabs.map((tab) => {
           const { content } = tab;
 

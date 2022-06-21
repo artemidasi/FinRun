@@ -7,6 +7,8 @@ import store from 'store';
 
 import Layout from 'components/layout';
 
+import 'react-datepicker/dist/react-datepicker.css';
+
 import 'styles/fonts.scss';
 import 'styles/global.scss';
 

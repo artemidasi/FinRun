@@ -10,6 +10,10 @@
 
 .right {
   padding: 30px;
+
+  max-width: 800px;
+
+  overflow-y: auto;
 }
 
 .title {
@@ -47,6 +51,8 @@
 
   font-weight: $font-weight-bold;
 
+  overflow: hidden;
+
   path {
     fill: $color;
   }
@@ -62,28 +68,8 @@
   }
 }
 
-.user {
-  &Container {
-    padding-bottom: 44px;
-  }
-
-  &Image {
-    width: 55px;
-    height: 55px;
-
-    margin-right: 13px;
-
-    border-radius: 100%;
-
-    overflow: hidden;
-  }
-
-  &Initials {
-    font-weight: $font-weight-bold;
-    font-size: $font-size-m;
-  }
-
-  &Email {
-    font-size: $font-size-xxs;
+.tab {
+  &_title {
+    margin-bottom: 40px;
   }
 }

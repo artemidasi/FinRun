@@ -6,6 +6,11 @@ import { useMount } from 'react-use';
 import store from 'store';
 
 import Layout from 'components/layout';
+import AllModals from 'components/modals';
+
+import WindowProvider from 'providers/window.provider';
+
+import 'react-datepicker/dist/react-datepicker.css';
 
 import 'styles/fonts.scss';
 import 'styles/global.scss';
@@ -35,10 +40,14 @@ const App = ({ Component, pageProps }: AppProps) => {
         <link rel="apple-touch-icon" href="/152x152.png" sizes="152x152" />
         <link rel="apple-touch-icon" href="/167x167.png" sizes="167x167" />
       </Head>
+
       <Provider store={store}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <WindowProvider>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </WindowProvider>
+        <AllModals />
       </Provider>
     </>
   );

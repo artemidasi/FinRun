@@ -1,0 +1,24 @@
+.content {
+  position: relative;
+  width: 100%;
+  padding: 45px 105px;
+  max-width: 855px;
+
+  background-color: white;
+
+  box-shadow: $box-shadow-main;
+
+  border-radius: $border-radius-s;
+}
+
+.title {
+  padding-bottom: 30px;
+}
+
+.icon {
+  &_close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+  }
+}

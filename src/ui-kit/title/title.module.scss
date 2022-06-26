@@ -1,0 +1,46 @@
+.title {
+  font-weight: $font-weight-bold;
+
+  &_h1 {
+    font-size: $font-size-xl;
+    line-height: $font-height-m;
+  }
+
+  &_h2 {
+    font-size: $font-size-l;
+    line-height: $font-height-m;
+  }
+
+  &_h3 {
+    font-size: $font-size-m;
+    line-height: $font-height-l;
+  }
+
+  &_h4 {
+    font-size: $font-size-s;
+    line-height: $font-height-m;
+  }
+
+  &_h5 {
+    font-size: $font-size-xs;
+    line-height: $font-height-m;
+
+    @media only screen and (max-width: $desktop) {
+      font-size: $font-size-tablet-xs;
+    }
+  }
+
+  &_h6 {
+    font-weight: $font-weight-medium;
+    font-size: $font-size-xxs;
+    line-height: $font-height-m;
+
+    @media only screen and (max-width: $desktop) {
+      font-size: $font-size-tablet-xxs;
+    }
+  }
+
+  &_normal {
+    font-weight: $font-weight-medium;
+  }
+}

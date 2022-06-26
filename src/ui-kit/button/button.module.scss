@@ -1,0 +1,22 @@
+.button {
+  color: white;
+  background-color: $blue-main-color;
+
+  border-radius: $border-radius-l;
+
+  &_size {
+    &__M {
+      padding: 16px 21px;
+    }
+  }
+}
+
+.icon {
+  &_left {
+    padding-right: 14px;
+  }
+
+  &_right {
+    padding-left: 14px;
+  }
+}

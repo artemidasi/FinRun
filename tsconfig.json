@@ -15,6 +15,9 @@
     "noEmit": true,
     "jsx": "preserve",
     "baseUrl": "src",
+    "paths": {
+      "public/*": ["../public/*"]
+    },
     "downlevelIteration": true,
     "incremental": true
   },

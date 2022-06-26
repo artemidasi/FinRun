@@ -1,5 +1,5 @@
 .list {
-  padding-top: 24px;
+  padding: 24px 0;
 
   > :first-child {
     padding-top: 0;
@@ -17,15 +17,5 @@
 
   + .item {
     border-top: 1px solid rgba(0, 0, 0, 0.1);
-  }
-
-  &Title,
-  &Price {
-    font-weight: $font-weight-bold;
-    font-size: $font-size-xs;
-  }
-
-  &Status {
-    font-size: $font-size-xxs;
   }
 }

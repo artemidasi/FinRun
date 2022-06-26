@@ -1,0 +1,16 @@
+.container {
+  height: 10px;
+
+  border-radius: $border-radius-xs;
+
+  background-color: rgba($blue-main-color, 0.4);
+}
+
+.result {
+  height: 10px;
+
+  border-top-left-radius: $border-radius-xs;
+  border-bottom-left-radius: $border-radius-xs;
+
+  background-color: $blue-main-color;
+}

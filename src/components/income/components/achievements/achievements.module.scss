@@ -1,0 +1,43 @@
+.title {
+  padding: 53px 0 40px;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+
+.item {
+  $vertical-space: 30px;
+
+  padding: 12px $vertical-space;
+
+  background-color: $blue-light-color;
+
+  border-radius: $border-radius-xl;
+
+  &_full {
+    width: calc(550px + #{$vertical-space * 2});
+  }
+
+  &_last {
+    background-color: $blue-main-color;
+  }
+
+  &Right {
+    padding-left: 26px;
+  }
+
+  &Information {
+    padding-bottom: 20px;
+  }
+
+  &Text {
+    padding-right: 63px;
+
+    max-width: 240px;
+
+    font-weight: $font-weight-bold;
+  }
+}

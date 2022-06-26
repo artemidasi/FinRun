@@ -1,6 +1,7 @@
 export interface TitleProps {
   variant?: TitleVariant;
   className?: string;
+  isNoBold?: boolean;
 }
 
-type TitleVariant = 'h1' | 'h2' | 'h3' | 'h4';
+type TitleVariant = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';

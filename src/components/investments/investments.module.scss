@@ -1,0 +1,62 @@
+.list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 33px;
+  row-gap: 24px;
+
+  padding-bottom: 60px;
+}
+
+.item {
+  padding: 16px;
+
+  border-radius: $border-radius-l;
+
+  &_good {
+    background-color: $green-light-color;
+  }
+
+  &_bad {
+    background-color: $red-light-color;
+  }
+}
+
+.point {
+  width: 12px;
+  height: 12px;
+
+  margin-right: 8px;
+
+  border-radius: 100%;
+
+  &_good {
+    background-color: $green-main-color;
+  }
+
+  &_bad {
+    background-color: $error-color;
+  }
+}
+
+.text {
+  color: $gray-main-color;
+}
+
+.tab {
+  &_list {
+    padding-bottom: 40px;
+  }
+
+  &_item + &_item {
+    margin-left: 25px;
+  }
+
+  &_item {
+    color: $gray-light-color;
+    outline: none;
+
+    &__selected {
+      color: black;
+    }
+  }
+}

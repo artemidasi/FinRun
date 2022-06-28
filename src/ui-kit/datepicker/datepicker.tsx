@@ -4,7 +4,7 @@ import { ru } from 'date-fns/locale';
 
 import { Nullable } from 'types';
 
-import Input from 'ui-kit/input';
+import { Input } from 'ui-kit/input';
 
 import { dateFormat } from 'constants/date';
 

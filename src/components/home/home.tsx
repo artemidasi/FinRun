@@ -6,6 +6,7 @@ import cn from 'classnames';
 import Income from 'components/income';
 import UserInformation from 'components/user-information';
 import Expenses from 'components/expenses';
+import Investments from 'components/investments';
 
 import { TabArrow } from 'ui-kit/icon';
 import Title from 'ui-kit/title';
@@ -24,7 +25,7 @@ const Home: FC = () => {
     },
     {
       text: 'Инвестиции',
-      content: <section>Инвестиции (контент)</section>,
+      content: <Investments />,
     },
     {
       text: 'Статистика',

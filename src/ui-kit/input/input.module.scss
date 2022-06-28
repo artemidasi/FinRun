@@ -4,7 +4,30 @@
 
 .input {
   padding: 16px;
-  
-  border: 1.5px solid black;
+  margin-bottom: 34px;
+  border-width: 0;
+
+  box-shadow: 0 0 0 1px black;
   border-radius: $border-radius-l;
+
+  font-size: $font-size-s;
+
+  &::placeholder {
+    color: $gray-main-color;
+  }
+
+  &_checked {
+    box-shadow: 0 0 0 1px $blue-main-color;
+  }
+
+  &_error {
+    box-shadow: 0 0 0 1px $error-color;
+  }
+}
+
+.error {
+  position: absolute;
+  bottom: 10px;
+
+  color: $error-color;
 }

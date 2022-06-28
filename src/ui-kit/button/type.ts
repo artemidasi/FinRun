@@ -1,9 +1,11 @@
 export interface ButtonProps {
-  onClick: () => void;
+  onClick?: () => void;
   size?: ButtonSize;
   className?: string;
   iconLeft?: JSX.Element;
   iconRight?: JSX.Element;
+  type?: 'submit';
+  disabled?: boolean;
 }
 
 export enum ButtonSize {

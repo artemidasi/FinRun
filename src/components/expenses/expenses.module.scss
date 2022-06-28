@@ -1,3 +1,25 @@
-.title {
-  margin-bottom: 40px;
+.spending {
+  &Container {
+    padding-top: 53px;
+  }
+
+  &Title {
+    padding-bottom: 30px;
+  }
+}
+
+.container {
+  display: grid;
+  width: 340px;
+
+  > :first-of-type {
+    grid-area: 1/-1;
+  }
+}
+
+.test {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-area: 1/-1;
 }

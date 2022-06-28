@@ -17,7 +17,7 @@ const Button: FC<ButtonProps> = (props) => {
   } = props;
 
   const classes = cn(
-    'flex-row flex-align_center',
+    'flex-row flex-align_center flex-justify_center',
     styles.button,
     styles[`button_size__${size}`],
     className,

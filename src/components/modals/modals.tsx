@@ -6,19 +6,23 @@ import IncomeForm from 'components/income/components/income-form';
 import ExpensesForm from 'components/expenses/components/expenses-form';
 
 import Modal from 'ui-kit/modal';
+import { ModalProps } from './type';
 
-const IncomeModals: FC = () => {
+const IncomeModal: FC<ModalProps> = (props) => {
+  const { name } = props;
+
   return (
-    <Modal title="Новый доход" name={NamesModal.add_income}>
-      <IncomeForm />
+    <Modal title="Новый доход" name={name}>
+      <IncomeForm name={name} />
     </Modal>
   );
 };
 
-const ExpensesModals: FC = () => {
+const ExpensesModal: FC<ModalProps> = (props) => {
+  const { name } = props;
   return (
-    <Modal title="Новый расход" name={NamesModal.add_expenses}>
-      <ExpensesForm />
+    <Modal title="Новый расход" name={name}>
+      <ExpensesForm name={name} />
     </Modal>
   );
 };
@@ -26,8 +30,8 @@ const ExpensesModals: FC = () => {
 const AllModals: FC = () => {
   return (
     <>
-      <IncomeModals />
-      <ExpensesModals />
+      <IncomeModal name={NamesModal.add_income} />
+      <ExpensesModal name={NamesModal.add_expenses} />
     </>
   );
 };

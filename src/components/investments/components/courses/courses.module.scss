@@ -1,0 +1,46 @@
+.top {
+  display: grid;
+  grid-template-columns: minmax(200px, 416px) 1fr;
+  gap: 20px;
+  padding-bottom: 50px;
+}
+
+.information {
+  max-width: 416px;
+}
+
+.title {
+  padding-bottom: 13px;
+}
+
+.price {
+  display: block;
+
+  padding: 14px 16px;
+
+  border-radius: $border-radius-l;
+
+  background-color: $blue-light-color;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 34px;
+  row-gap: 18px;
+}
+
+.item {
+  padding: 16px;
+
+  border: 1px solid $gray-extra-light-color;
+  border-radius: $border-radius-l;
+
+  box-shadow: $box-shadow-main;
+
+  &Title {
+    padding-bottom: 8px;
+    
+    color: $gray-main-color;
+  }
+}

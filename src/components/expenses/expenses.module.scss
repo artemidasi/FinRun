@@ -1,3 +1,9 @@
-.title {
-  margin-bottom: 40px;
+.spending {
+  &Container {
+    padding-top: 53px;
+  }
+
+  &Title {
+    padding-bottom: 30px;
+  }
 }

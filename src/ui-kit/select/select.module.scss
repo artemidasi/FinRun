@@ -1,0 +1,10 @@
+.wrapper {
+  position: relative;
+}
+
+.error {
+  position: absolute;
+  bottom: 10px;
+
+  color: $error-color;
+}

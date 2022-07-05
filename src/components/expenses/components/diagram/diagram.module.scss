@@ -1,0 +1,70 @@
+$padding: 16px;
+
+.container {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 80px;
+}
+
+.diagram {
+  &Container {
+    display: grid;
+    width: 280px;
+
+    > :first-of-type {
+      grid-area: 1/-1;
+    }
+  }
+
+  &Text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-area: 1/-1;
+  }
+
+  &Date {
+    padding-bottom: 10px;
+
+    color: $gray-light-color;
+  }
+}
+
+.legend {
+  &List {
+    width: 100%;
+  }
+
+  &Item + &Item {
+    border-top: $border-main;
+  }
+
+  &Item {
+    padding: $padding 0;
+    margin: 0 $padding;
+  }
+
+  &Point {
+    width: 12px;
+    height: 12px;
+
+    margin-right: 16px;
+
+    border-radius: 100%;
+  }
+
+  &Price {
+    margin-left: auto;
+  }
+}
+
+.irrational {
+  &Item {
+    padding: $padding;
+
+    color: $error-color;
+    background-color: $red-light-color;
+
+    border-radius: $border-radius-l;
+  }
+}

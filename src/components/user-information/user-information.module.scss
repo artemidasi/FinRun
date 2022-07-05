@@ -1,13 +1,11 @@
-.user {
-  &Container {
-    padding-bottom: 44px;
+.container {
+  padding-bottom: 44px;
 
-    img {
-      border-radius: 100%;
-    }
+  img {
+    border-radius: 100%;
   }
+}
 
-  &Information {
-    padding-left: 13px;
-  }
+.information {
+  padding-left: 13px;
 }

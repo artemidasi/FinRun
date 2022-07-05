@@ -35,7 +35,7 @@ const Home: FC = () => {
 
   return (
     <Tabs className="flex-row full-height">
-      <section className={cn('flex-column', styles.left)}>
+      <section className={cn('flex-column full-width', styles.navigate)}>
         <UserInformation />
 
         <TabList className={styles.list}>

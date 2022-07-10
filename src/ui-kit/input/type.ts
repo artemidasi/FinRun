@@ -16,4 +16,4 @@ export interface FieldInputProps {
   type?: InputType;
 }
 
-export type InputType = 'text' | 'number';
+export type InputType = 'text' | 'number' | 'email' | 'date' | 'password';

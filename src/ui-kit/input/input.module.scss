@@ -1,8 +1,14 @@
 .wrapper {
   position: relative;
+
+  &Password {
+    display: grid;
+  }
 }
 
 .input {
+  grid-area: 1/1;
+
   padding: 16px;
   margin-bottom: 34px;
   border-width: 0;
@@ -22,6 +28,16 @@
 
   &_error {
     box-shadow: 0 0 0 1px $error-color;
+  }
+}
+
+.icon {
+  position: relative;
+  grid-area: 1/1;
+  padding: 16px;
+
+  &Right {
+    margin-left: auto;
   }
 }
 

@@ -9,6 +9,10 @@
       padding: 16px 21px;
     }
   }
+
+  &:disabled {
+    background-color: rgba($blue-main-color, 0.5);
+  }
 }
 
 .icon {

@@ -88,6 +88,12 @@ a {
     flex-direction: row;
   }
 
+  &-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   &-column {
     display: flex;
     flex-direction: column;

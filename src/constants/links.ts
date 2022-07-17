@@ -1,6 +1,7 @@
 import { Links } from 'types/links';
 
 export const unresctrictedPages: string[] = [
+  Links.onboarding,
   Links.auth,
   Links.registration,
   Links.drop_password,

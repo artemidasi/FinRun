@@ -1,29 +1,29 @@
 import { FC } from 'react';
 import Select, { MultiValue, SingleValue, StylesConfig } from 'react-select';
+
 import cn from 'classnames';
 
 import { FormikSelectProps, Option } from './type';
 
 import styles from 'ui-kit/input/input.module.scss';
+import Title from 'ui-kit/title';
+
 import CustomControl from './components/control';
 
 const customStyles: StylesConfig<Option> = {
   control: (provided, state) => {
     const { className } = state;
 
-    const isChecked = className === styles.input_checked;
-    const isError = className === styles.input_error;
+    const isChecked = className === styles.inputChecked;
+    const isError = className === styles.inputError;
 
-    let color = 'black';
+    let color = 'var(--gray-light-color)';
 
     if (isError) color = 'var(--error-color)';
 
     if (isChecked) color = 'var(--blue-main-color)';
 
     const boxShadow = `0 0 0 1px ${color}`;
-
-    // eslint-disable-next-line no-console
-    console.log(boxShadow);
 
     return {
       ...provided,
@@ -84,7 +84,7 @@ const customStyles: StylesConfig<Option> = {
 };
 
 export const FormikSelect: FC<FormikSelectProps> = (props) => {
-  const { options, fieldProps, placeholder } = props;
+  const { options, fieldProps, placeholder, label } = props;
 
   const { field, meta, form } = fieldProps;
 
@@ -100,8 +100,19 @@ export const FormikSelect: FC<FormikSelectProps> = (props) => {
     setFieldValue(name, value?.value);
   };
 
+  const isChecked = !error && options.length;
+
   return (
     <div className={cn('flex-column full-width', styles.wrapper)}>
+      <label
+        className={cn(styles.label, {
+          [styles.labelError]: error,
+          [styles.labelChecked]: isChecked,
+        })}
+        htmlFor={name}>
+        <Title variant="h5">{label}</Title>
+      </label>
+
       <Select
         defaultValue={options[0]}
         styles={customStyles}
@@ -113,8 +124,8 @@ export const FormikSelect: FC<FormikSelectProps> = (props) => {
             return (
               <CustomControl
                 className={cn({
-                  [styles.input_error]: error,
-                  [styles.input_checked]: !error,
+                  [styles.inputError]: error,
+                  [styles.inputChecked]: !error,
                 })}
                 {...props}
               />

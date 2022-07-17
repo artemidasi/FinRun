@@ -1,5 +1,5 @@
 export enum Links {
-  main = '/',
+  onboarding = '/',
   home = '/home',
   registration = '/registration',
   auth = '/auth',

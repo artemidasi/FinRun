@@ -1,17 +1,9 @@
-import Preloader from 'components/preloader';
-import { useCustomRouter } from 'hooks/useCustomRouter.hook';
 import { NextPage } from 'next';
-import { useMount } from 'react-use';
-import { Links } from 'types/links';
+
+import Onboarding from 'components/onboarding';
 
 const StartPage: NextPage = () => {
-  const router = useCustomRouter();
-
-  useMount(() => {
-    router.push(Links.auth);
-  });
-
-  return <Preloader />;
+  return <Onboarding />;
 };
 
 export default StartPage;

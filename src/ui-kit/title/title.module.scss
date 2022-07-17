@@ -1,39 +1,30 @@
 .title {
   font-weight: $font-weight-bold;
+  line-height: 1.3;
 
   &_h1 {
-    font-size: $font-size-xl;
-    line-height: $font-height-m;
+    @include fluid-type($font-size-xl);
   }
 
   &_h2 {
-    font-size: $font-size-l;
-    line-height: $font-height-m;
+    @include fluid-type($font-size-l);
   }
 
   &_h3 {
-    font-size: $font-size-m;
-    line-height: $font-height-l;
+    @include fluid-type($font-size-m);
   }
 
   &_h4 {
-    font-size: $font-size-s;
-    line-height: $font-height-m;
+    @include fluid-type($font-size-s);
   }
 
   &_h5 {
-    font-size: $font-size-xs;
-    line-height: $font-height-m;
-
-    @media only screen and (max-width: $desktop) {
-      font-size: $font-size-tablet-xs;
-    }
+    @include fluid-type($font-size-xs);
   }
 
   &_h6 {
     font-weight: $font-weight-medium;
     font-size: $font-size-xxs;
-    line-height: $font-height-m;
 
     @media only screen and (max-width: $desktop) {
       font-size: $font-size-tablet-xxs;

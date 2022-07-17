@@ -21,13 +21,19 @@
 }
 
 .auth {
+  $padding: 60px;
+
   &Wrapper {
-    padding: 25px;
+    padding: $padding;
   }
-  
+
   &Container {
-    padding: 25px;
-    max-width: 500px;
+    position: relative;
+
+    width: 100%;
+    max-width: 843px;
+
+    padding: $padding;
 
     border-radius: $border-radius-s;
 
@@ -37,4 +43,8 @@
 
     overflow-y: auto;
   }
+}
+
+.logo {
+  padding-bottom: 43px;
 }

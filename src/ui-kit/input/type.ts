@@ -3,6 +3,7 @@ import { MouseEvent } from 'react';
 
 export interface InputProps {
   type?: InputType;
+  label: string;
   placeholder?: string;
   value?: string;
   onClick?: (event: MouseEvent) => void;
@@ -12,6 +13,7 @@ export interface InputProps {
 
 export interface FieldInputProps {
   fieldProps: FieldProps;
+  label: string;
   placeholder?: string;
   type?: InputType;
 }

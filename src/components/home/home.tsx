@@ -7,6 +7,7 @@ import Income from 'components/income';
 import UserInformation from 'components/user-information';
 import Expenses from 'components/expenses';
 import Investments from 'components/investments';
+import Logo from 'components/logo';
 
 import { TabArrow } from 'ui-kit/icon';
 import Title from 'ui-kit/title';
@@ -58,7 +59,7 @@ const Home: FC = () => {
           })}
         </TabList>
 
-        <span className={styles.title}>FinRun</span>
+        <Logo className={styles.title} />
       </section>
 
       <section className={cn('full-width', styles.right)}>

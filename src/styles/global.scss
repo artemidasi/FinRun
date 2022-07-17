@@ -1,10 +1,8 @@
 :root {
-  --border-radius-l: #{$border-radius-l};
-
-  --font-size-s: #{$font-size-s};
-
-  --blue-main-color: #{$blue-main-color};
   --error-color: #{$error-color};
+  --blue-main-color: #{$blue-main-color};
+  --border-radius-l: #{$border-radius-l};
+  --gray-light-color: #{$gray-light-color};
 }
 
 * {

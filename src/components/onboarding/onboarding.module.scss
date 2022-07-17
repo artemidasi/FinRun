@@ -1,0 +1,17 @@
+$padding-bottom: 25px;
+
+.information {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 25px;
+}
+
+.description {
+  color: $gray-light-color;
+}
+
+.button {
+  &Auth {
+    margin: 0 auto;
+  }
+}

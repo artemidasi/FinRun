@@ -10,6 +10,7 @@ import styles from './input.module.scss';
 
 import { FieldInputProps, InputProps } from './type';
 import { Nullable } from 'types';
+import Title from '../title';
 
 const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   const { type = 'text', onChange, value, errorText, onClick } = props;
@@ -38,7 +39,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
 });
 
 const FormikInput: FC<FieldInputProps> = (props) => {
-  const { fieldProps, type, ...inputProps } = props;
+  const { fieldProps, type, label, ...inputProps } = props;
 
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
@@ -49,6 +50,8 @@ const FormikInput: FC<FieldInputProps> = (props) => {
   const { field, meta } = fieldProps;
 
   const { touched, error } = meta;
+
+  const { name } = field;
 
   const isPassword = type === 'password';
 
@@ -74,11 +77,14 @@ const FormikInput: FC<FieldInputProps> = (props) => {
   const getTypeInput = (): 'text' | 'password' =>
     showPassword ? 'text' : 'password';
 
+  const isChecked = !error && touched;
+
   const getInput = () => (
     <input
+      id={name}
       className={cn(styles.input, {
-        [styles.input_error]: error,
-        [styles.input_checked]: !error && touched,
+        [styles.inputError]: error,
+        [styles.inputChecked]: isChecked,
       })}
       type={isPassword ? getTypeInput() : type}
       {...field}
@@ -88,6 +94,15 @@ const FormikInput: FC<FieldInputProps> = (props) => {
 
   return (
     <div className={cn('flex-column full-width', styles.wrapper)}>
+      <label
+        className={cn(styles.label, {
+          [styles.labelError]: error,
+          [styles.labelChecked]: isChecked,
+        })}
+        htmlFor={name}>
+        <Title variant="h5">{label}</Title>
+      </label>
+
       {isPassword ? (
         <div className={cn(styles.wrapperPassword, styles.wrapper)}>
           {getInput()}
@@ -102,7 +117,11 @@ const FormikInput: FC<FieldInputProps> = (props) => {
       ) : (
         getInput()
       )}
-      {error && <span className={styles.error}>{error}</span>}
+      {error && (
+        <Title variant="h6" className={styles.error}>
+          {error}
+        </Title>
+      )}
     </div>
   );
 };

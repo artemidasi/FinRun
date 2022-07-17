@@ -13,9 +13,10 @@ import { Links } from 'types/links';
 
 import Button from 'ui-kit/button';
 import { FormikInput } from 'ui-kit/input';
-import Title from 'ui-kit/title';
 
 import { registrationSchema } from './schema';
+
+import Steps from 'components/steps';
 
 import { useCustomRouter } from 'hooks/useCustomRouter.hook';
 
@@ -41,38 +42,46 @@ const Registration: FC = () => {
     {
       name: 'first_name',
       placeholder: 'Введите ваше имя',
+      label: 'Имя',
     },
     {
       name: 'last_name',
       placeholder: 'Введите вашу фамилию',
+      label: 'Фамилия',
     },
     {
       name: 'birth_date',
       placeholder: 'Введите вашу дату рождения',
       type: 'date',
+      label: 'Дата рождения',
     },
     {
       name: 'email',
       placeholder: 'Введите вашу почту',
       type: 'email',
+      label: 'Почта',
     },
     {
       name: 'login',
       placeholder: 'Введите ваш логин',
+      label: 'Логин',
     },
     {
       name: 'phone',
       placeholder: 'Введите ваш телефон',
+      label: 'Телефон',
     },
     {
       name: 'password',
       placeholder: 'Придумайте пароль',
       type: 'password',
+      label: 'Пароль',
     },
     {
       name: 'password_check',
       placeholder: 'Повторите пароль',
       type: 'password',
+      label: 'Подтверждение пароля',
     },
   ];
 
@@ -89,9 +98,7 @@ const Registration: FC = () => {
 
   return (
     <>
-      <Title className={styles.title} variant="h2">
-        Регистрация
-      </Title>
+      <Steps maximum_step={3} current_step={2} />
 
       <Formik
         initialValues={initialValues}
@@ -104,13 +111,14 @@ const Registration: FC = () => {
           return (
             <Form className={styles.form}>
               {fields.map((field) => {
-                const { name, placeholder, type = 'text' } = field;
+                const { name, placeholder, type = 'text', label } = field;
 
                 return (
                   <Field key={name} name={name}>
                     {(fieldProps: FieldProps<FormikValues>) => {
                       return (
                         <FormikInput
+                          label={label}
                           type={type}
                           placeholder={placeholder}
                           fieldProps={fieldProps}
@@ -121,15 +129,11 @@ const Registration: FC = () => {
                 );
               })}
 
-              <div className="flex-row flex-justify_sb">
-                <Button onClick={handleGo(Links.registration)}>
-                  Регистрация
-                </Button>
-                <Button onClick={handleGo(Links.drop_password)}>
-                  Забыли пароль?
-                </Button>
-                <Button type="submit" disabled={!isValid}>
-                  Вход
+              <div className="flex-column flex-justify_sb">
+                <Button
+                  disabled={!isValid}
+                  onClick={handleGo(Links.registration)}>
+                  Зарегистрироваться
                 </Button>
               </div>
             </Form>

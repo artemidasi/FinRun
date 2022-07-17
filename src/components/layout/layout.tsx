@@ -4,6 +4,8 @@ import { FC } from 'react';
 
 import cn from 'classnames';
 
+import Logo from 'components/logo';
+
 import styles from './layout.module.scss';
 
 const Layout: FC = ({ children }) => {
@@ -21,7 +23,8 @@ const Layout: FC = ({ children }) => {
           [authClasses]: isAuthPage,
         })}>
         {isAuthPage ? (
-          <div className={cn('full-width full-height', styles.authContainer)}>
+          <div className={cn('full-height', styles.authContainer)}>
+            <Logo className={styles.logo} />
             {children}
           </div>
         ) : (

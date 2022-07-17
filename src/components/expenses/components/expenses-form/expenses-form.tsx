@@ -37,15 +37,18 @@ const ExpensesForm: FC<ExpensesFormProps> = (props) => {
     {
       name: 'name',
       placeholder: 'Наименование',
+      label: 'Название',
     },
     {
       name: 'category',
       placeholder: 'Категория',
+      label: 'Категория',
     },
     {
       name: 'summa',
       type: 'number',
       placeholder: 'Сумма в рублях',
+      label: 'Сумма',
     },
   ];
 
@@ -61,7 +64,13 @@ const ExpensesForm: FC<ExpensesFormProps> = (props) => {
         return (
           <Form className={styles.form}>
             {fields.map((field) => {
-              const { name, placeholder, type = 'text', options } = field;
+              const {
+                name,
+                placeholder,
+                type = 'text',
+                options,
+                label,
+              } = field;
 
               return (
                 <Field key={name} name={name}>
@@ -69,6 +78,7 @@ const ExpensesForm: FC<ExpensesFormProps> = (props) => {
                     if (options) {
                       return (
                         <FormikSelect
+                          label={label}
                           placeholder="Cтатус"
                           options={options}
                           fieldProps={fieldProps}
@@ -78,6 +88,7 @@ const ExpensesForm: FC<ExpensesFormProps> = (props) => {
 
                     return (
                       <FormikInput
+                        label={label}
                         type={type}
                         placeholder={placeholder}
                         fieldProps={fieldProps}

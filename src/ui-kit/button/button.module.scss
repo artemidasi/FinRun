@@ -1,26 +1,49 @@
 .button {
   color: white;
-  background-color: $blue-main-color;
 
   border-radius: $border-radius-l;
 
+  &:disabled {
+    cursor: default;
+  }
+
   &_size {
+    &__S {
+      padding: 10px 12px;
+    }
+
     &__M {
       padding: 16px 21px;
     }
   }
 
-  &:disabled {
-    background-color: rgba($blue-main-color, 0.5);
+  &_variant {
+    &__contained {
+      background-color: $blue-main-color;
+
+      &:disabled {
+        background-color: rgba($blue-main-color, 0.5);
+      }
+    }
+
+    &__outlined {
+      box-shadow: 0 0 0 1px $blue-main-color;
+      color: $blue-main-color;
+      background-color: $invisible;
+    }
+
+    &__text {
+      padding: 5px 0;
+      color: $blue-main-color;
+      background-color: $invisible;
+
+      &:disabled {
+        color: $gray-light-color;
+      }
+    }
   }
 }
 
-.icon {
-  &_left {
-    padding-right: 14px;
-  }
-
-  &_right {
-    padding-left: 14px;
-  }
+.text {
+  padding-left: 5px;
 }

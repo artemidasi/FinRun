@@ -6,13 +6,17 @@ import ModalReducer from 'reducers/modals';
 
 import api from 'store/api';
 
+const { mainApi, authApi } = api;
+
 const store = configureStore({
   reducer: {
     modals: ModalReducer,
-    [api.reducerPath]: api.reducer,
+
+    [mainApi.reducerPath]: mainApi.reducer,
+    [authApi.reducerPath]: authApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat([api.middleware]),
+    getDefaultMiddleware().concat([mainApi.middleware, authApi.middleware]),
 });
 
 export type RootState = ReturnType<typeof store.getState>;

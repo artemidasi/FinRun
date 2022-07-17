@@ -4,6 +4,9 @@
   "homepage": "./",
   "private": false,
   "dependencies": {
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "@mui/icons-material": "^5.8.4",
     "@reduxjs/toolkit": "^1.8.2",
     "axios": "^0.19.2",
     "classnames": "^2.3.1",

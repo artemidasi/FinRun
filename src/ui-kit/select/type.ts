@@ -6,6 +6,7 @@ export interface Option {
 }
 
 export interface FormikSelectProps {
+  label: string;
   fieldProps: FieldProps;
   options: Option[];
   placeholder?: string;

@@ -1,0 +1,15 @@
+.title {
+  padding-bottom: 25px;
+  color: $blue-main-color;
+
+  text-align: center;
+}
+
+.button {
+  &Back {
+    position: absolute;
+
+    top: 10px;
+    left: 10px;
+  }
+}

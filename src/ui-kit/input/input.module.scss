@@ -1,27 +1,43 @@
 .wrapper {
   position: relative;
+
+  &Password {
+    display: grid;
+  }
 }
 
 .input {
+
+  @include fluid-type($font-size-s);
+  grid-area: 1/1;
+
   padding: 16px;
   margin-bottom: 34px;
   border-width: 0;
 
-  box-shadow: 0 0 0 1px black;
+  box-shadow: 0 0 0 1px $gray-light-color;
   border-radius: $border-radius-l;
-
-  font-size: $font-size-s;
 
   &::placeholder {
     color: $gray-main-color;
   }
 
-  &_checked {
+  &Checked {
     box-shadow: 0 0 0 1px $blue-main-color;
   }
 
-  &_error {
+  &Error {
     box-shadow: 0 0 0 1px $error-color;
+  }
+}
+
+.icon {
+  position: relative;
+  grid-area: 1/1;
+  padding: 16px;
+
+  &Right {
+    margin-left: auto;
   }
 }
 
@@ -30,4 +46,18 @@
   bottom: 10px;
 
   color: $error-color;
+}
+
+.label {
+  color: $gray-light-color;
+
+  padding-bottom: 6px;
+
+  &Error {
+    color: $error-color;
+  }
+
+  &Checked {
+    color: $blue-main-color;
+  }
 }

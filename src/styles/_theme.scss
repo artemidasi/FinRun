@@ -10,6 +10,7 @@ $green-light-color: #e7fbed;
 $green-main-color: #0ad142;
 $red-light-color: #fceeed;
 $error-color: #f04800;
+$invisible: #0000;
 
 $font-size-tablet-xxs: 10px;
 $font-size-xxs: 12px;
@@ -18,11 +19,8 @@ $font-size-xs: 16px;
 $font-size-s: 18px;
 $font-size-m: 22px;
 $font-size-l: 30px;
-$font-size-xl: 50px;
+$font-size-xl: 42px;
 $font-size-xxl: 200px;
-
-$font-height-m: 21px;
-$font-height-l: 28px;
 
 $border-radius-xs: 4px;
 $border-radius-s: 6px;
@@ -48,3 +46,29 @@ $tablet: 750px;
 $desktop: 1024px;
 $desktop-height: 1366px;
 $desktop-l: 1440px;
+
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+$min-width: 320px;
+$max-width: 1920px;
+
+@mixin fluid-type($max-font-size) {
+  $u1-value: unit($min-width);
+  $u2-value: unit($max-width);
+  $u3-value: unit($font-size-xxs);
+  $u4-value: unit($max-font-size);
+
+  @if $u1-value == $u2-value and $u1-value == $u3-value and $u1-value == $u4-value {
+    font-size: $font-size-xxs;
+
+    @media screen and (min-width: $min-width) {
+      font-size: calc(#{$font-size-xxs} + #{strip-unit($max-font-size - $font-size-xxs)} *
+      ((100vw - #{$min-width}) / #{strip-unit($max-width - $min-width)}));
+    }
+    @media screen and (min-width: $max-width) {
+      font-size: $max-font-size;
+    }
+  }
+}

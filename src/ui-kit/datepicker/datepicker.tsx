@@ -11,7 +11,7 @@ import { dateFormat } from 'constants/date';
 import { DatePickerProps } from './type';
 
 const DatePicker: FC<DatePickerProps> = (props) => {
-  const { onChange, value } = props;
+  const { onChange, value, label } = props;
 
   const handleChangeDate = (date: Nullable<Date>) => {
     onChange(date);
@@ -23,7 +23,7 @@ const DatePicker: FC<DatePickerProps> = (props) => {
       selected={value}
       locale={ru}
       onChange={handleChangeDate}
-      customInput={<Input />}
+      customInput={<Input label={label} />}
     />
   );
 };

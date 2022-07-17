@@ -48,16 +48,19 @@ const IncomeForm: FC<IncomeFormProps> = (props) => {
     {
       name: 'name',
       placeholder: 'Наименование',
+      label: 'Название',
     },
     {
       name: 'category',
       placeholder: 'Категория',
       options: categoryOptions,
+      label: 'Категория',
     },
     {
       name: 'summa',
       type: 'number',
       placeholder: 'Сумма в рублях',
+      label: 'Сумма',
     },
   ];
 
@@ -73,7 +76,13 @@ const IncomeForm: FC<IncomeFormProps> = (props) => {
         return (
           <Form className={styles.form}>
             {fields.map((field) => {
-              const { name, placeholder, type = 'text', options } = field;
+              const {
+                name,
+                placeholder,
+                type = 'text',
+                options,
+                label,
+              } = field;
 
               return (
                 <Field key={name} name={name}>
@@ -81,6 +90,7 @@ const IncomeForm: FC<IncomeFormProps> = (props) => {
                     if (options) {
                       return (
                         <FormikSelect
+                          label={label}
                           placeholder="Cтатус"
                           options={options}
                           fieldProps={fieldProps}
@@ -90,6 +100,7 @@ const IncomeForm: FC<IncomeFormProps> = (props) => {
 
                     return (
                       <FormikInput
+                        label={label}
                         type={type}
                         placeholder={placeholder}
                         fieldProps={fieldProps}

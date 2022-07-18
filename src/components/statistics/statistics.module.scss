@@ -1,0 +1,22 @@
+.list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 28px;
+  grid-row-gap: 28px;
+
+  padding-bottom: 26px;
+}
+
+.item {
+  min-height: 200px;
+
+  &Title {
+    color: $gray-main-color;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

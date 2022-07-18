@@ -5,6 +5,12 @@ export type CustomRouter = NextRouter & {
 };
 
 export interface QueryParams {
+  day_start?: string;
+  month_start?: string;
+  year_start?: string;
+  day_end?: string;
+  month_end?: string;
+  year_end?: string;
   id?: string;
 }
 

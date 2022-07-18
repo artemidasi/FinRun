@@ -23,12 +23,7 @@
   }
 
   &_h6 {
-    font-weight: $font-weight-medium;
     font-size: $font-size-xxs;
-
-    @media only screen and (max-width: $desktop) {
-      font-size: $font-size-tablet-xxs;
-    }
   }
 
   &_normal {

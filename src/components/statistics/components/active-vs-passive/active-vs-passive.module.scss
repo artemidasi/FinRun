@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+
+  height: 100%;
+}
+
+.legend {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.passive {
+  margin-top: auto;
+
+  color: $gray-light-color;
+}
+
+.active {
+  color: black;
+}
+
+.active,
+.passive {
+  text-align: end;
+}

@@ -2,7 +2,7 @@ import { FC, useContext, useMemo } from 'react';
 import Image from 'next/image';
 
 import Button from 'ui-kit/button';
-import DateInterval from 'ui-kit/date-interval';
+import Calendar from 'components/calendar';
 
 import { windowContext } from 'providers/window.provider';
 
@@ -31,7 +31,7 @@ const FinanceContainer: FC<FinanceContainerProps> = (props) => {
   const content = {
     [WindowType.desktop]: (
       <>
-        <DateInterval />
+        <Calendar />
 
         <FinanceList items={items} />
 
@@ -51,7 +51,7 @@ const FinanceContainer: FC<FinanceContainerProps> = (props) => {
     [WindowType.tablet]: (
       <>
         <div className="flex-row flex-align_center flex-justify_sb">
-          <DateInterval />
+          <Calendar />
           <SummaContainer summa={totalSumma} />
         </div>
 
@@ -69,7 +69,7 @@ const FinanceContainer: FC<FinanceContainerProps> = (props) => {
     [WindowType.mobile]: (
       <>
         <div className="flex-row flex-align_center flex-justify_sb">
-          <DateInterval />
+          <Calendar />
           <SummaContainer summa={totalSumma} />
         </div>
 

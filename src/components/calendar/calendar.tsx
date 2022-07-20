@@ -4,17 +4,21 @@ import cn from 'classnames';
 
 import { today, getLocalTimeZone } from '@internationalized/date';
 
-import Calendar from 'public/static/images/calendar.svg';
+import CalendarIcon from 'public/static/images/calendar.svg';
 
 import Title from 'ui-kit/title';
 
 import { useCustomRouter } from 'hooks/useCustomRouter.hook';
 
-import { DateIntervalProps } from './type';
+import { dateConfig, defaultLanguage } from './const';
 
-import styles from './date-interval.module.scss';
+import { getCalendarString } from './helper';
 
-const DateInterval: FC<DateIntervalProps> = (props) => {
+import { CalendarProps } from './type';
+
+import styles from './calendar.module.scss';
+
+const Calendar: FC<CalendarProps> = (props) => {
   const { isOnlyYear } = props;
 
   const router = useCustomRouter();
@@ -36,37 +40,28 @@ const DateInterval: FC<DateIntervalProps> = (props) => {
     Number(year_start),
     Number(month_start),
     Number(day_start),
-  ).toLocaleString('ru', {
-    day: '2-digit',
-    month: 'short',
-    year: '2-digit',
-  });
+  ).toLocaleString(defaultLanguage, dateConfig);
 
   const dayEnd = new Date(
     Number(year_end),
     Number(month_end),
     Number(day_end),
-  ).toLocaleString('ru', {
-    day: '2-digit',
-    month: 'short',
-    year: '2-digit',
-  });
+  ).toLocaleString(defaultLanguage, dateConfig);
 
   return (
     <section className={cn('pointer flex-row', styles.wrapper)}>
-      <Image src={Calendar} width={24} height={24} unoptimized />
+      <Image src={CalendarIcon} width={24} height={24} unoptimized />
 
       <Title variant="h5" className={styles.text}>
-        {isOnlyYear ? (
-          <span>за {year_start} г.</span>
-        ) : (
-          <>
-            {dayStart} - {dayEnd}
-          </>
-        )}
+        {isOnlyYear
+          ? `за ${year_start} год`
+          : getCalendarString({
+              dayEnd,
+              dayStart,
+            })}
       </Title>
     </section>
   );
 };
 
-export default DateInterval;
+export default Calendar;

@@ -4,30 +4,13 @@ import Title from 'ui-kit/title';
 
 import Card from 'components/card';
 
-import BalanceChart from './components/balance';
+import IncomeAndExpensesChart from './components/income-and-expenses';
+
+import { statistics, variantTitle } from './const';
 
 import styles from './statistics.module.scss';
 
 const Statistics: FC = () => {
-  const statistics = [
-    {
-      title: 'Баланc доходов и расходов',
-      chart: <BalanceChart incomes={1_870_032} expenses={-570_032} />,
-    },
-    {
-      title: 'Сэкономлено всего',
-      chart: null,
-    },
-    {
-      title: 'Рационнальные vs. иррациональные расходы',
-      chart: null,
-    },
-    {
-      title: 'Активные vs. пассивные доходы',
-      chart: null,
-    },
-  ];
-
   return (
     <section>
       <ul className={styles.list}>
@@ -37,7 +20,7 @@ const Statistics: FC = () => {
           return (
             <li key={title} className={styles.item}>
               <Card className={styles.card}>
-                <Title className={styles.itemTitle} variant="h6">
+                <Title className={styles.itemTitle} variant={variantTitle}>
                   {title}
                 </Title>
 
@@ -49,7 +32,11 @@ const Statistics: FC = () => {
       </ul>
 
       <Card>
-        <Title variant="h3">Доходы и расходы за год</Title>
+        <Title className={styles.title} variant={variantTitle}>
+          Доходы и расходы за год
+        </Title>
+
+        <IncomeAndExpensesChart />
       </Card>
     </section>
   );

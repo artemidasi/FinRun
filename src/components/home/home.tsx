@@ -12,7 +12,7 @@ import Logo from 'components/logo';
 
 import { TabArrow } from 'ui-kit/icon';
 import Title from 'ui-kit/title';
-import DateInterval from 'ui-kit/date-interval';
+import Calendar from 'components/calendar';
 
 import styles from './home.module.scss';
 
@@ -76,7 +76,7 @@ const Home: FC = () => {
                   {text}
                 </Title>
 
-                {isYearInterval && <DateInterval isOnlyYear />}
+                {isYearInterval && <Calendar isOnlyYear />}
               </div>
 
               {content}

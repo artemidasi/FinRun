@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+
+  height: 100%;
+}
+
+.legend {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.rational {
+  margin-top: auto;
+
+  color: $blue-main-color;
+}
+
+.irrational {
+  color: $error-color;
+}
+
+.rational,
+.irrational {
+  text-align: end;
+}

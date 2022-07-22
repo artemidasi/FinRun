@@ -1,0 +1,42 @@
+.chart {
+  height: 20px;
+}
+
+.row + .row {
+  padding-top: 6px;
+}
+
+.income {
+  $color: $blue-main-color;
+
+  &Text {
+    color: $color;
+  }
+
+  &Value {
+    background-color: $color;
+  }
+}
+
+.expenses {
+  $color: $error-color;
+
+  &Text {
+    color: $color;
+  }
+
+  &Value {
+    background-color: $color;
+  }
+}
+
+.point {
+  width: 8px;
+  height: 8px;
+
+  margin-right: 10px;
+
+  background-color: currentColor;
+
+  border-radius: 100%;
+}

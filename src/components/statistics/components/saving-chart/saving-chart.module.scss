@@ -1,0 +1,24 @@
+.title {
+  padding: 10px 0;
+}
+
+.chart {
+  &Container {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 200px;
+  }
+
+  &Element {
+    grid-area: 1/1;
+
+    max-height: 100px;
+  }
+}
+
+.percent {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  grid-area: 1/1;
+}

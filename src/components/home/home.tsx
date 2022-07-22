@@ -7,10 +7,12 @@ import Income from 'components/income';
 import UserInformation from 'components/user-information';
 import Expenses from 'components/expenses';
 import Investments from 'components/investments';
+import Statistics from 'components/statistics';
 import Logo from 'components/logo';
 
 import { TabArrow } from 'ui-kit/icon';
 import Title from 'ui-kit/title';
+import Calendar from 'components/calendar';
 
 import styles from './home.module.scss';
 
@@ -30,7 +32,8 @@ const Home: FC = () => {
     },
     {
       text: 'Статистика',
-      content: <section>Статистика (контент)</section>,
+      isYearInterval: true,
+      content: <Statistics />,
     },
   ];
 
@@ -64,13 +67,17 @@ const Home: FC = () => {
 
       <section className={cn('full-width', styles.right)}>
         {tabs.map((tab) => {
-          const { content, text } = tab;
+          const { content, text, isYearInterval } = tab;
 
           return (
             <TabPanel key={uuid()}>
-              <Title className={styles.tab_title} variant="h2">
-                {text}
-              </Title>
+              <div className={styles.tabTop}>
+                <Title className={styles.tabTitle} variant="h2">
+                  {text}
+                </Title>
+
+                {isYearInterval && <Calendar isOnlyYear />}
+              </div>
 
               {content}
             </TabPanel>

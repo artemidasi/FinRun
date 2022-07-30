@@ -49,7 +49,7 @@ const FormikInput: FC<FieldInputProps> = (props) => {
 
   const { field, meta } = fieldProps;
 
-  const { touched, error } = meta;
+  const { value, error } = meta;
 
   const { name } = field;
 
@@ -77,7 +77,7 @@ const FormikInput: FC<FieldInputProps> = (props) => {
   const getTypeInput = (): 'text' | 'password' =>
     showPassword ? 'text' : 'password';
 
-  const isChecked = !error && touched;
+  const isChecked = !error && value;
 
   const getInput = () => (
     <input

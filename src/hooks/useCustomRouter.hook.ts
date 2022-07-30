@@ -11,7 +11,16 @@ export interface QueryParams {
   day_end?: string;
   month_end?: string;
   year_end?: string;
+  email?: string;
+  alert_status?: AlertStatus;
+  token?: string;
   id?: string;
+}
+
+export enum AlertStatus {
+  confirm = 'confirm',
+  success = 'success',
+  error = 'error',
 }
 
 export const useCustomRouter = () => {

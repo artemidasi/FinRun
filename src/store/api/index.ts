@@ -8,7 +8,7 @@ import {
 import { unresctrictedPages } from 'constants/links';
 import Router from 'next/router';
 import { Links } from 'types/links';
-import { RegistrationBody } from 'types/registration';
+import { RegistrationBody, RegistrationResponse } from 'types/registration';
 
 const baseQuery = fetchBaseQuery({
   baseUrl: process.env.NEXT_PUBLIC_API_URL,
@@ -46,12 +46,12 @@ const authApi = createApi({
   keepUnusedDataFor: 86_400,
   reducerPath: 'authApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: process.env.NEXT_PUBLIC_API_URL,
+    baseUrl: process.env.NEXT_PUBLIC_AUTH_API_URL,
 
     credentials: 'include',
   }),
   endpoints: (builder) => ({
-    registration: builder.mutation<string, RegistrationBody>({
+    registration: builder.mutation<RegistrationResponse, RegistrationBody>({
       query: (body) => {
         return {
           url: 'registration',
@@ -60,11 +60,19 @@ const authApi = createApi({
         };
       },
     }),
+    confirm_email: builder.query<undefined, string>({
+      query: (token) => {
+        return {
+          url: `confirm_email?token=${token}`,
+          method: 'GET',
+        };
+      },
+    }),
   }),
 });
 
 export const {} = mainApi;
 
-export const {} = authApi;
+export const { useRegistrationMutation } = authApi;
 
 export default { mainApi, authApi };

@@ -3,7 +3,7 @@ import Head from 'next/head';
 
 import Registration from 'components/registration';
 
-const HomePage: NextPage = () => {
+const RegistrationPage: NextPage = () => {
   return (
     <>
       <Head>
@@ -15,4 +15,4 @@ const HomePage: NextPage = () => {
   );
 };
 
-export default HomePage;
+export default RegistrationPage;

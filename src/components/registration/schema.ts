@@ -12,7 +12,8 @@ import { Value } from './type';
 
 export const registrationSchema: yup.SchemaOf<Value> = yup.object().shape({
   first_name: RequiredSchema,
-  last_name: RequiredSchema,
+  second_name: RequiredSchema,
+  last_name: yup.string(),
   birth_date: DateSchema,
   email: EmailSchema,
   login: RequiredSchema,

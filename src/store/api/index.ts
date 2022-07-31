@@ -46,7 +46,7 @@ const secureApi = createApi({
   keepUnusedDataFor: 86_400,
   reducerPath: 'authApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: process.env.NEXT_PUBLIC_AUTH_API_URL,
+    baseUrl: process.env.NEXT_PUBLIC_SECURE_API_URL,
 
     credentials: 'include',
   }),
@@ -75,7 +75,11 @@ const authApi = createApi({
   tagTypes: [],
   keepUnusedDataFor: 86_400,
   reducerPath: 'mainApi',
-  baseQuery: baseQueryWithReauth,
+  baseQuery: fetchBaseQuery({
+    baseUrl: process.env.NEXT_PUBLIC_AUTH_API_URL,
+
+    credentials: 'include',
+  }),
   endpoints: (builder) => ({
     token: builder.mutation<
       {
@@ -91,7 +95,7 @@ const authApi = createApi({
           url: 'token',
           method: 'POST',
           params: {
-            grant_type: 'password_credentials',
+            grant_type: 'password',
             client_id: 'securityService',
             client_secret: 'securityService',
             username,

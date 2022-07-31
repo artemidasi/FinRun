@@ -12,15 +12,21 @@ export interface QueryParams {
   month_end?: string;
   year_end?: string;
   email?: string;
+  section_name?: SectionName;
   alert_status?: AlertStatus;
   token?: string;
   id?: string;
 }
 
 export enum AlertStatus {
-  confirm = 'confirm',
+  pending = 'pending',
   success = 'success',
   error = 'error',
+}
+
+export enum SectionName {
+  registration = 'registration',
+  email_confirmation = 'email_confirmation',
 }
 
 export const useCustomRouter = () => {

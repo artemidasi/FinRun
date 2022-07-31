@@ -4,5 +4,6 @@ export enum Links {
   registration = '/registration',
   auth = '/auth',
   email_confirmation = '/email_confirmation',
+  alert = '/alert',
   drop_password = '/drop-password',
 }

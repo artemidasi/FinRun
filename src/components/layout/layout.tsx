@@ -7,6 +7,7 @@ import cn from 'classnames';
 import Logo from 'components/logo';
 
 import styles from './layout.module.scss';
+import { Links } from '../../types/links';
 
 const Layout: FC = ({ children }) => {
   const router = useCustomRouter();
@@ -23,7 +24,10 @@ const Layout: FC = ({ children }) => {
           [authClasses]: isAuthPage,
         })}>
         {isAuthPage ? (
-          <div className={cn('full-height', styles.authContainer)}>
+          <div
+            className={cn(styles.authContainer, {
+              'full-height': router.pathname !== Links.alert,
+            })}>
             <Logo className={styles.logo} />
             {children}
           </div>

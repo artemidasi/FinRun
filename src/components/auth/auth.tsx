@@ -6,7 +6,7 @@ import {
   FormikProps,
   FormikValues,
 } from 'formik';
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 
 import { FieldInformation } from 'types/schema';
 
@@ -23,9 +23,24 @@ import { authSchema } from './schema';
 import { Values } from './type';
 
 import styles from './auth.module.scss';
+import { useTokenMutation } from 'store/api';
+
+import { LocalKey, saveState } from 'utils/localStorage';
 
 const Auth: FC = () => {
   const router = useCustomRouter();
+
+  const [getToken, { isLoading, data }] = useTokenMutation();
+
+  useEffect(() => {
+    if (data) {
+      const { access_token } = data;
+
+      saveState(LocalKey.access_token, access_token);
+
+      handleGo(Links.home)();
+    }
+  }, [data]);
 
   const initialValues: Values = {
     username: '',
@@ -50,10 +65,7 @@ const Auth: FC = () => {
   };
 
   const handleAuthUser = (values: Values) => {
-    // eslint-disable-next-line no-console
-    console.log(values);
-
-    handleGo(Links.home)();
+    getToken(values);
   };
 
   return (
@@ -92,14 +104,16 @@ const Auth: FC = () => {
               })}
 
               <div className="flex-column flex-justify_sb">
-                <Button type="submit" disabled={!isValid}>
+                <Button type="submit" disabled={!isValid || isLoading}>
                   Вход
                 </Button>
+
                 <Button
                   variant={ButtonVariant.text}
                   onClick={handleGo(Links.registration)}>
                   Регистрация
                 </Button>
+
                 <Button
                   disabled
                   variant={ButtonVariant.text}

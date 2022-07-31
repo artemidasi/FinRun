@@ -41,12 +41,12 @@ const mainApi = createApi({
   endpoints: () => ({}),
 });
 
-const authApi = createApi({
+const secureApi = createApi({
   tagTypes: [],
   keepUnusedDataFor: 86_400,
   reducerPath: 'authApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: process.env.NEXT_PUBLIC_AUTH_API_URL,
+    baseUrl: process.env.NEXT_PUBLIC_SECURE_API_URL,
 
     credentials: 'include',
   }),
@@ -71,8 +71,47 @@ const authApi = createApi({
   }),
 });
 
+const authApi = createApi({
+  tagTypes: [],
+  keepUnusedDataFor: 86_400,
+  reducerPath: 'mainApi',
+  baseQuery: fetchBaseQuery({
+    baseUrl: process.env.NEXT_PUBLIC_AUTH_API_URL,
+
+    credentials: 'include',
+  }),
+  endpoints: (builder) => ({
+    token: builder.mutation<
+      {
+        access_token: string;
+      },
+      {
+        username: string;
+        password: string;
+      }
+    >({
+      query: ({ username, password }) => {
+        return {
+          url: 'token',
+          method: 'POST',
+          params: {
+            grant_type: 'password',
+            client_id: 'securityService',
+            client_secret: 'securityService',
+            username,
+            password,
+            scope: 'super',
+          },
+        };
+      },
+    }),
+  }),
+});
+
 export const {} = mainApi;
 
-export const { useRegistrationMutation } = authApi;
+export const { useTokenMutation } = authApi;
 
-export default { mainApi, authApi };
+export const { useRegistrationMutation } = secureApi;
+
+export default { mainApi, secureApi, authApi };

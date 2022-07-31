@@ -8,8 +8,6 @@ import {
 } from 'formik';
 import { FC, useEffect } from 'react';
 
-import { DateFormatter } from '@internationalized/date';
-
 import { Links } from 'types/links';
 
 import Button from 'ui-kit/button';
@@ -19,34 +17,50 @@ import { registrationSchema } from './schema';
 
 import Steps from 'components/steps';
 
-import { AlertStatus, useCustomRouter } from 'hooks/useCustomRouter.hook';
+import {
+  AlertStatus,
+  SectionName,
+  useCustomRouter,
+} from 'hooks/useCustomRouter.hook';
 
 import styles from './registration.module.scss';
 
 import { Value } from './type';
 import { useRegistrationMutation } from 'store/api';
-import { RegistrationBody } from 'types/registration';
 import { ButtonVariant } from 'ui-kit/button/type';
 import { fields, initialValues } from './const';
 
 const Registration: FC = () => {
   const router = useCustomRouter();
 
-  const [fetchRegistration, { data }] = useRegistrationMutation();
+  const [fetchRegistration, { data, isError }] = useRegistrationMutation();
+
+  const section_name = SectionName.registration;
 
   useEffect(() => {
     if (data) {
       const { email } = data;
 
-      handleGo(Links.email_confirmation, {
+      handleGo(Links.alert, {
         email,
-        alert_status: AlertStatus.confirm,
+        section_name,
+        alert_status: AlertStatus.success,
       })();
     }
   }, [data]);
 
-  const handleGo = (name: Links, query?: Record<string, string>) => () => {
-    router.push(name, {
+  useEffect(() => {
+    if (isError) {
+      handleGo(Links.alert, {
+        section_name,
+        alert_status: AlertStatus.error,
+      })();
+    }
+  }, [isError]);
+
+  const handleGo = (pathname: Links, query?: Record<string, string>) => () => {
+    router.push({
+      pathname,
       query,
     });
   };
@@ -54,14 +68,7 @@ const Registration: FC = () => {
   const handleRegistration = (values: Value) => {
     delete values.password_check;
 
-    const { format } = new DateFormatter('ru-RU');
-
-    const body: RegistrationBody = {
-      ...values,
-      birth_date: format(new Date(values.birth_date)),
-    };
-
-    fetchRegistration(body);
+    fetchRegistration(values);
   };
 
   return (

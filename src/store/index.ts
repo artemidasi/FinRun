@@ -6,12 +6,13 @@ import ModalReducer from 'reducers/modals';
 
 import api from 'store/api';
 
-const { mainApi, authApi } = api;
+const { mainApi, authApi, secureApi } = api;
 
 const store = configureStore({
   reducer: {
     modals: ModalReducer,
 
+    [secureApi.reducerPath]: secureApi.reducer,
     [mainApi.reducerPath]: mainApi.reducer,
     [authApi.reducerPath]: authApi.reducer,
   },
